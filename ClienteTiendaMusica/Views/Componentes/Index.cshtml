@@ -1,0 +1,76 @@
+﻿@model IEnumerable<ClienteTiendaMusica.Models.Componentes>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecioBruto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IVA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecioNeto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categorias.Nombre)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecioBruto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IVA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecioNeto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categorias.Nombre)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
+                @Html.ActionLink("Añadir", "AddCarrito", new {id = item.ID}) |
+                <input type="button" class="btn btn-info" value="Añadir al carrito" onclick="AddCompCarrito(this)"
+                       data-assigned-id="@item.ID" />
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>@Html.ActionLink("Atrás", "Index", "Home", null, new {@class = "btn btn-success"})</p>
+<p>@Html.ActionLink("Carrito de Compra", "VerCarrito", "Componentes", null, new { @class = "btn btn-success" })</p>
+
+
+@section miJS
+{
+    <script src="~/Scripts/miJS.js"></script>
+}

@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div id="registro">
+    <label id="txtNombreLabel" for="txtNombre">Introduce tu nombre</label>
+    <input type="text" id="txtNombre" placeholder="Escribe aquí" />
+    <br/><br/>
+    <p>@Html.ActionLink("Acceder", "PantInicial", "Home", null, new { @class = "btn btn-info", id="btnAcceder" })</p>
+    
+
+</div>
+
+@section miJS
+{
+    <script src="~/Scripts/miJS.js"></script>
+}
