@@ -3,15 +3,11 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Configurador de Música</h2>
 
-<div id="registro">
-    <label id="txtNombreLabel" for="txtNombre">Introduce tu nombre</label>
-    <input type="text" id="txtNombre" placeholder="Escribe aquí" />
-    <br/><br/>
-    <p>@Html.ActionLink("Acceder", "PantInicial", "Home", null, new { @class = "btn btn-info", id="btnAcceder" })</p>
-    
-
+<div id="botones">
+    <p>@Html.ActionLink("Ver Categorías", "Index", "Categorias", null, new { @class = "btn btn-success" })</p>
+    <p>@Html.ActionLink("Elegir Componentes", "Index", "Componentes", null, new { @class = "btn btn-success" })</p>
 </div>
 
 @section miJS

@@ -24,11 +24,11 @@
         </td>
         <td>
             @*@Html.ActionLink("Editar", "Edit", new { id=item.ID }) |*@
-            @Html.ActionLink("Ver Componentes", "VerComp", new { id=item.ID }) |
+            @Html.ActionLink("Ver Componentes", "VerComp", "Componentes", new { idCat=item.ID, nombreCat = item.Nombre }, null) |
             @*@Html.ActionLink("Eliminar", "Delete", new { id=item.ID })*@
         </td>
     </tr>
 }
 
 </table>
-<p>@Html.ActionLink("Atrás", "Index", "Home", null, new { @class = "btn btn-success" })</p>
+<p>@Html.ActionLink("Indice", "Index", "Home", null, new { @class = "btn btn-success" })</p>

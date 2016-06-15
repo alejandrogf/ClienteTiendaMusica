@@ -200,7 +200,8 @@
     <Content Include="Views\Categorias\Index.cshtml" />
     <Content Include="Views\Categorias\Alta.cshtml" />
     <Content Include="Views\Componentes\Index.cshtml" />
-    <Content Include="Views\Home\PantInicial.cshtml" />
+    <Content Include="Views\Componentes\VerComp.cshtml" />
+    <Content Include="Views\Componentes\VerConfiguracion.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

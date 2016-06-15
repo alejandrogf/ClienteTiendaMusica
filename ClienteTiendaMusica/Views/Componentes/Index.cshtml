@@ -1,16 +1,18 @@
 ﻿@model IEnumerable<ClienteTiendaMusica.Models.Componentes>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Componentes";
 }
 
-<h2>Index</h2>
+<h2>Selección de componentes</h2>
 
 <p>
-    @*@Html.ActionLink("Create New", "Create")*@
+    Filtro por Categoría
+    @Html.DropDownList("Categorias", ViewBag.Categorias as SelectList, "Elige una categoría", new { idCat = "ID" })
 </p>
-<table class="table">
-    <tr>
+<table id="datos" class="table">
+    <thead>
+    <tr id="cabecera">
         <th>
             @Html.DisplayNameFor(model => model.Nombre)
         </th>
@@ -26,51 +28,25 @@
         <th>
             @Html.DisplayNameFor(model => model.PrecioNeto)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Categorias.Nombre)
-        </th>
         <th></th>
     </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrecioBruto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IVA)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrecioNeto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Categorias.Nombre)
-            </td>
-            <td>
-                @*@Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
-                @Html.ActionLink("Añadir", "AddCarrito", new {id = item.ID}) |
-                <input type="button" class="btn btn-info" value="Añadir al carrito" onclick="AddCompCarrito(this)"
-                       data-assigned-id="@item.ID" />
-            </td>
-        </tr>
-    }
+    </thead>
+    <tbody>
+    
+    </tbody>
+    
 
 </table>
 
-<p>@Html.ActionLink("Atrás", "Index", "Home", null, new {@class = "btn btn-success"})</p>
-<p>@Html.ActionLink("Carrito de Compra", "VerCarrito", "Componentes", null, new { @class = "btn btn-success" })</p>
-
+<p>@Html.ActionLink("Indice", "Index", "Home", null, new {@class = "btn btn-success"})</p>
+<p>@Html.ActionLink("Ver Configuracion", "VerConfiguracion", "Componentes", null, new { @class = "btn btn-success" })</p>
+<input type="button" class="btn btn-info" value="Ver carro" onclick="VerCarro()"/>
 
 @section miJS
 {
+    <script>
+        var listaComp = '@Html.Raw(Json.Encode(@Model))';
+        var url = "@Url.Action("VerConfiguracion", "Componentes")";
+    </script>
     <script src="~/Scripts/miJS.js"></script>
 }

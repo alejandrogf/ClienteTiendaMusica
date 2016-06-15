@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ClienteTiendaMusica.Models.Componentes>
+
+@{
+    ViewBag.Title = "VerComp";
+}
+
+<h2>Componentes de @ViewBag.NombreCat</h2>
+
+<p>
+    
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecioBruto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IVA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecioNeto)
+        </th>
+        @*<td></td>*@
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrecioBruto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IVA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrecioNeto)
+        </td>
+        @*<td>@Html.ActionLink("Añadir", "AddCarrito", new { id = item.ID }) |
+        <input type="button" class="btn btn-info" value="Añadir al carrito" onclick="AddCompCarrito(this)"
+               data-assigned-id="@item.ID" /></td>*@
+
+    </tr>
+}
+
+</table>
+<p>@Html.ActionLink("Atrás", "Index", "Categorias", null, new {@class = "btn btn-success"})</p>
+
+@section miJS
+{
+    <script src="~/Scripts/miJS.js"></script>
+}
